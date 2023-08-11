@@ -3,8 +3,8 @@ import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import PartyPage from "./partyPage";
 
-async function loader() {
-  const party = "ff";
+async function loader({ params }) {
+  const party = "ff" + params.aid;
   return { party };
 }
 
@@ -32,9 +32,9 @@ const router = createBrowserRouter([
   },
   {
     path: "/aa/:aid",
-    element: <PartyPage/>,
-    loader: loader
-  }
+    element: <PartyPage />,
+    loader: loader,
+  },
 ]);
 
 function App() {

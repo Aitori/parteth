@@ -1,10 +1,11 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
 import PartyPage from "./partyPage";
+import { Button } from "@nextui-org/react";
 
 async function loader({ params }) {
-  const party = "ff" + params.aid;
+  const party = params.aid;
   return { party };
 }
 
@@ -14,18 +15,10 @@ const router = createBrowserRouter([
     element: (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <div className="px-16">Attendstation</div>
+          <Link to="/aa/edit">
+            <Button>Create</Button>
+          </Link>
         </header>
       </div>
     ),

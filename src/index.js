@@ -5,13 +5,13 @@ import App from "./App";
 import { Auth0Provider } from "@auth0/auth0-react";
 import reportWebVitals from "./reportWebVitals";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
-import { sepolia } from "wagmi/chains";
+import { sepolia, optimism } from "wagmi/chains";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import {NextUIProvider} from "@nextui-org/react";
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
-  [sepolia],
+  [sepolia, optimism],
   [alchemyProvider({ apiKey: process.env.ALCHEMY_KEY })]
 );
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { redirect, useLoaderData, useNavigate } from "react-router-dom";
 import { Button, Input } from "@nextui-org/react";
 import "./partyPage.css";
-import { useAccount } from "wagmi";
+import { useAccount, useNetwork } from "wagmi";
 import { EAS, SchemaEncoder } from "@ethereum-attestation-service/eas-sdk";
 import { ethers } from "ethers";
 import { getAttestation, getAttestationsForSchema } from "./utils/easUtils";
@@ -19,6 +19,7 @@ const eas = new EAS(EASContractAddress);
 const PartyPage = () => {
   const { party } = useLoaderData();
   const { address, isDisconnected, isConnected } = useAccount();
+  const { chain } = useNetwork();
   const signer = useSigner();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
